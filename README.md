@@ -1,3 +1,6 @@
+Git cheat sheet link: https://education.github.com/git-cheat-sheet-education.pdf
+                                                      
+                                                      
                                                       First Linux Project
     This project is aimed to build a Website for a company called Class-enroll. The domain for the company is classenroll.com and the process is as followed:
 
