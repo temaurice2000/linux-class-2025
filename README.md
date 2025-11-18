@@ -7,6 +7,7 @@
       III-  Copy your pub-key into your remote repository
        IV-  Create a new directory on your local machine
         V-  Clone the remote repository into your newly created directory on your local machine
-      VI-   CD in your cloned repository and create a shell script that will Download and install Apache2 on your local machine.
+      VI-   CD in your cloned repository  
      VII-   Create a new branch on your local machine called <<Your_First_Name>>
-     VIII-  Make sure that your web-engine is up and running before you push your code back to the remote repository
+     VII-   create a shell script that will Download and install Apache2 on your local machine.
+     IX-  Make sure that your web-engine is up and running before you push your code back to the remote repository
