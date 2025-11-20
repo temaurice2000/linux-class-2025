@@ -1,10 +1,13 @@
 #!/bin/bash 
 
+echo -e "\n\ Making the user sudo"
+sudo su -
+
 echo -e "\n\ Installing apache 2"
 sudo apt install apache -y
 
 echo -e "\n\ Enabling Apache 2 at boot"
-sudo apt install apache2 -y
+sudo apt enable apache2 -y
 
 echo -e "\n\ Starting Apache2 service"
 sudo systemctl start apache2
