@@ -11,3 +11,8 @@ sudo apt enable apache2 -y
 
 echo -e "\n\ Starting Apache2 service"
 sudo systemctl start apache2
+
+echo -e "\n\ Adjusting the firewall"
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
