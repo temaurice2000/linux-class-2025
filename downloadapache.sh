@@ -12,7 +12,8 @@ fi
 echo "Starting Apache installation on Red Hat Linux..."
 
 # Check if Apache is already installed
-if rpm -q httpd &>/dev/null; then
+rpm -q httpd &>/dev/null
+if [ "echo $?" == 0 ]; then
     echo "Apache (httpd) is already installed."
     echo "Skipping installation and ensuring service is enabled and running."
     systemctl enable httpd
@@ -20,7 +21,7 @@ if rpm -q httpd &>/dev/null; then
 else
     echo "Apache (httpd) is not installed. Proceeding with installation."
     # Install Apache
-    if yum install -y httpd; then
+	yum install -y httpd
         echo "Apache (httpd) installed successfully."
         # Enable and start Apache service
         systemctl enable httpd
