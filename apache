@@ -1,18 +1,30 @@
 #!/bin/bash 
 
-echo -e "\n\ Making the user sudo"
-sudo su -
 
-echo -e "\n\ Installing apache 2"
-sudo apt install apache -y
+#Checking if the user is already root 
+echo -e "\n Making the user to become root"
+if [[ $EUID == 0 ]]; then
+   echo "This user is root."
+else 
+	sudo su -
+fi
 
-echo -e "\n\ Enabling Apache 2 at boot"
-sudo apt enable apache2 -y
+#Checking if apache is already installed
+rpm -q httpd >> /dev/null
+if [ "echo $?" == 0 ]; then
+	echo "apache is already installed"
+else
+	echo -e "\n Installing apache 2"
+	sudo dnf install apache -y
+fi
 
-echo -e "\n\ Starting Apache2 service"
+echo -e "\n Enabling Apache2 as a service"
+sudo systemctl enable apache2
+
+echo -e "\n Starting Apache2 service"
 sudo systemctl start apache2
 
-echo -e "\n\ Adjusting the firewall"
+echo -e "\n Updating the firewall"
 sudo firewall-cmd --permanent --add-service=http
-sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --permanent --add-port=443/tcp
 sudo firewall-cmd --reload
